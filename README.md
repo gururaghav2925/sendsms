@@ -1,4 +1,4 @@
-# Ex.No: 4 – Send SMS using Intent (Android)
+# Ex.No: 3 – Send SMS using Intent (Android)
  
 ## Aim
 To create and design an Android application that sends an SMS using an Intent, using Android Studio.
