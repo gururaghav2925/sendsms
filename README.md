@@ -36,23 +36,59 @@ smsintent/
     ├── java/com/example/smsintent/MainActivity.java
     └── res/layout/activity_main.xml
 ```
- 
-## How It Works
-1. The user enters a phone number in `etPhoneNumber` and a message in `etMessage`.
-2. On clicking `btnSendSms`, the app checks that the phone number is not empty.
-3. An intent is built:
-```java
-   Intent intent = new Intent(Intent.ACTION_SENDTO);
-   intent.setData(Uri.parse("smsto:" + phoneNumber));
-   intent.putExtra("sms_body", message);
-```
-4. `intent.resolveActivity(getPackageManager())` confirms a messaging app exists.
-5. `startActivity(intent)` opens the default messaging app with the details pre-filled.
-## Manifest Notes
+
+## Manifest
 - `<uses-permission android:name="android.permission.SEND_SMS" />` is declared.
 - A `<queries>` block for `android.intent.action.SENDTO` with scheme `smsto` is required for package visibility on Android 11 and above. Without it, `resolveActivity` can return `null`.
 - `MainActivity` is the launcher activity with `android:exported="true"`.
+```xml
 
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send SMS using Intent"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="32dp" />
+
+    <EditText
+        android:id="@+id/etPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter phone number"
+        android:inputType="phone"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/etMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your message"
+        android:inputType="textMultiLine"
+        android:minLines="3"
+        android:gravity="top|start"
+        android:layout_marginBottom="24dp" />
+
+    <Button
+        android:id="@+id/btnSendSms"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send SMS" />
+
+</LinearLayout>
+```
 
 ## MainActivity.java
 ```java
