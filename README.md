@@ -85,10 +85,6 @@ smsintent/
 
 ## MainActivity.java
 ```java
-/*
- * Program to create and design an android application Send SMS using Intent.
- * Developed by: <name>, Register Number: <reg no>
- */
 package com.example.myapplication;
 
 import android.content.Intent;
