@@ -11,13 +11,6 @@ Because the SMS is handed off to the default messaging app, the app itself does 
 ## Equipment Required
 - Android Studio (latest version)
 - Android emulator with a messaging app, or a real Android device
-## Project Details
-| Item | Value |
-|------|-------|
-| Project name | smsintent |
-| Template | Empty Views Activity |
-| Language | Java |
-| Min SDK | As selected during project setup |
  
 ## Algorithm
 1. Open Android Studio and click **File → New → New Project**.
